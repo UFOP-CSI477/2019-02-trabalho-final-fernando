@@ -12,12 +12,12 @@
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento
+  O trabalho final tem como tema o desenvolvimento de um sistema de gerenciamento de uma gráfica, a WebGraphic.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades: 
+  Este projeto terá as seguintes funcionalidades: cadastrar, editar e remover vendas, clientes e orçamentos. Possibilitará o controle financeiro e do estoque, bem como saída de produtos.
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
