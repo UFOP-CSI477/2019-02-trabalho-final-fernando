@@ -1,4 +1,4 @@
-# **CSI477-2019-02 - Proposta de Trabalho Final**
+# **CSI477-2019-02 - Proposta de Trabalho Final - WebGraphic**
 ## *Grupo: Fernando Silva e Natanael Costa*
 
 --------------
