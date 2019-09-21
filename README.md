@@ -12,12 +12,12 @@
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de um sistema de gerenciamento de uma gráfica.
+  O trabalho final tem como tema o desenvolvimento
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades: cadastrar, atualizar e remover produtos, clientes, vendas e orçamentos.
+  Este projeto terá as seguintes funcionalidades: 
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
