@@ -7,7 +7,7 @@
 
 ### Resumo
 
-  O objetivo deste documento é apresentar uma proposta para o trabalho a ser desenvolvido na disciplina CSI477 -- Sistemas WEB I. É uma breve descrição sobre o tema que será abordado, bem como o escopo, as restrições e demais questões pertinentes ao contexto. (**modifique este texto conforme o contexto do seu trabalho :D**)
+  O objetivo deste documento é apresentar uma proposta para o trabalho a ser desenvolvido na disciplina CSI477 -- Sistemas WEB I. É uma breve descrição sobre o tema que será abordado, bem como o escopo, as restrições e demais questões pertinentes ao contexto. 
 
 <!-- Apresentar o tema. -->
 ### 1. Tema
