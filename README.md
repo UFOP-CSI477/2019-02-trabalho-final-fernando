@@ -17,18 +17,19 @@
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades: cadastrar, editar e remover vendas, clientes e orçamentos. Possibilitará o controle financeiro e do estoque, bem como saída de produtos.
+  Este projeto terá as seguintes funcionalidades: cadastrar, editar e remover vendas, clientes e orçamentos. Possibilitará o controle financeiro e do estoque, bem como saída de produtos. Será necessário login para que o usuário tenha acesso ao sistema.
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados ...
+  Neste trabalho não serão considerados:
+  *Mais de uma empresa no sistema;
+  *Tipos diferentes de permissão para cada usuário.
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
+  Protótipos para as páginas de login e de cadastro de clientes foram elaborados, e podem ser encontrados na pasta protótipos do diretório.
 
 ### 5. Referências
-
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
+  Arquivos das aulas ministradas pelo professor.
