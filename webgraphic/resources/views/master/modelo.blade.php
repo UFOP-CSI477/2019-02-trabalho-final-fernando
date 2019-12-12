@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Gerenciador de TCC's - @yield('title')</title>
+    <title>Web Graphic - @yield('title')</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="_token" content="{{ csrf_token() }}">
     <title>Live Search</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

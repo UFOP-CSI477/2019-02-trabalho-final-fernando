@@ -18,10 +18,15 @@ class CreateServicosTable extends Migration
             $table->integer('id_cliente');
             $table->string('nome_cliente');
             $table->integer('id_produto');
-            $table->string('descricao_servico');
+            $table->string('nome_produto');
             $table->integer('quantidade');
+            $table->integer('id_funcionario');
+            $table->integer('prazo');
             $table->string('nome_funcionario');
             $table->double('preco_total');
+            $table->date('data_abertura');
+            $table->date('data_fechamento');
+
             $table->timestamps();
         });
     }
