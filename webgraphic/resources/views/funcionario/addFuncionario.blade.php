@@ -1,51 +1,55 @@
 @extends('master.modelo')
 
-@section('title', 'Cadastro_Projeto')
+@section('title', 'Cadastro Funcionario')
 
 @section('content')
 {{--    Formulário para criação do servico--}}
         <div class="raw" id="cadastro">
 {{--Método para envio dos dados para o backend--}}
-            <form  class="form-group" method="post" action="{{ route('projetos.store') }}">
+            <form  class="form-group" method="post" action="{{ route('funcionarios.store') }}">
                 @csrf
-{{--                carrega os nomes de alunos existentes--}}
                 <div class="form-group">
-                    <label for="aluno_id">Select Aluno:</label>
-                    <select name="aluno_id" id="aluno_id" class="form-control">
-                    <option value=""> -- Select Aluno --</option>
-                    @foreach ($alunos as $aluno)
-                        <option value="{{ $aluno->id }}">{{ $aluno->nome }}</option>
-                    @endforeach
-                </select>
-                </div>
-{{--carrega os nomes de professores existentes--}}
-                <div class="form-group">
-                    <label for="professor_id">Select Prof.:</label>
-                    <select name="professor_id" id="aluno_id" class="form-control">
-                    <option value=""> -- Select Professor --</option>
-                    @foreach ($professores as $professor)
-                        <option value="{{ $professor->id }}">{{ $professor->nome }}</option>
-                    @endforeach
-                </select>
-                </div>
-{{--seção dos campos comuns--}}
-                <div class="form-group">
-                    <label for="titulo">Titulo do Projeto</label>
-                    <input class="form-control" id="titulo" name="titulo" required="required" type="text" placeholder="Titulo do Projeto" />
+                    <label for="nome">Nome do funcionário: </label>
+                    <input class="form-control" id="nome" name="nome" required="required" type="text" placeholder="Nome completo" />
                 </div>
 
                 <div class="form-group">
-                    <label for="ano">Ano: </label>
-                    <input class="form-control" id="ano" name="ano" required="required" type="text" placeholder="19"/>
+                    <label for="telefone">Telefone do funcionário: </label>
+                    <input class="form-control" id="telefone" name="telefone" required="required" type="text" placeholder="(00) 99999-0000" />
                 </div>
-{{--Utilização do select para limitar as opções de preenchimento do campo semestre--}}
+
                 <div class="form-group">
-                    <label for="semestre">Semestre:</label>
-                    <select name="semestre" id="semestre" class="form-control">
-                        <option value=""> -- Select Semestre --</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
+                    <label for="data_nascimento">Data de nascimento: </label>
+                    <input class="form-control" id="data_nascimento" name="data_nascimento" required="required" type="date" placeholder=" " />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail: </label>
+                    <input class="form-control" id="email" name="email" required="required" type="text" placeholder="fulano@bol.com.br" />
+                </div>
+
+                 <div class="form-group">
+                    <label for="endereco">Endereço: </label>
+                    <input class="form-control" id="endereco" name="endereco" required="required" type="text" placeholder="Rua x, 000, Centro - Lugar Nenhum" />
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Genero:</label>
+                    <select name="genero" id="genero" class="form-control">
+                        <option value=""> -- Select Genero --</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="admissao">Data de admissão: </label>
+                    <input class="form-control" id="admissao" name="admissao" required="required" type="date" placeholder=" " />
+                </div>
+
+                <div class="form-group">
+                    <label for="funcao">Função: </label>
+                    <input class="form-control" id="funcao" name="funcao" required="required" type="text" placeholder="Atendente" />
                 </div>
 {{--Botão para submissão para persistência--}}
                 <div class="form-group">

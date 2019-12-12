@@ -9,53 +9,47 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Ano: </th>
-            <th>Semestre: </th>
-            <th>#ID: </th>
-            <th>Professor: </th>
-            <th>Aluno: </th>
-            <th>Titulo: </th>
-            <th>Area: </th>
+            <th>ID: </th>
+            <th>Nome: </th>
+            <th>Telefone: </th>
+{{--            <th>Data de nascimento: </th>--}}
+            <th>E-mail: </th>
+{{--            <th>Endereço: </th>--}}
+{{--            <th>Genero: </th>--}}
+{{--            <th>Admissão: </th>--}}
+            <th>Função: </th>
             <th>Ver: </th>
-            <th>Deletar: </th>
         </tr>
         </thead>
         <tbody>
 
-{{--        @foreach($projetos as $servico)--}}
+        @foreach($funcionarios as $funcionario)
 
-{{--            <tr>--}}
-{{--                <td>{{ $servico->ano }}</td>--}}
-{{--                <td>{{ $servico->semestre }}</td>--}}
-{{--                <td>{{ $servico->projetos_id }}</td>--}}
-{{--                <td>{{ $servico->projetos_professor }}</td>--}}
-{{--                <td>{{ $servico->projetos_aluno }}</td>--}}
-{{--                <td>{{ $servico->titulo }}</td>--}}
-{{--                <td>{{ $servico->area }}</td>--}}
+            <tr>
+                <td>{{ $funcionario->id }}</td>
+                <td>{{ $funcionario->nome }}</td>
+                <td>{{ $funcionario->telefone }}</td>
+{{--                <td>{{ $funcionario->data_nascimento }}</td>--}}
+                <td>{{ $funcionario->email }}</td>
+{{--                <td>{{ $funcionario->endereco }}</td>--}}
+{{--                <td>{{ $funcionario->genero }}</td>--}}
+{{--                <td>{{ $funcionario->admissao }}</td>--}}
+                <td>{{ $funcionario->funcao }}</td>
 
 {{--Seção contendo os botões para manipulação da tabela--}}
-{{--                <td>--}}
+                <td>
 {{--                    vizualizador individual para os elementos da tabela--}}
-{{--                    <a class="btn btn-info"  href="{{ route('projetos.show', ['servico' => $servico->projetos_id]) }}">Ver</a>--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    botão para remoção do elemento da tabela--}}
-{{--                    <form action="{{ route('projetos.destroy', ['servico' => $servico->projetos_id]) }}" method="post">--}}
-{{--                        @csrf--}}
-{{--                        @method('delete')--}}
-{{--                        <input type="hidden" name="servico" value="{{ $servico->projetos_id }}">--}}
-{{--                        <input class="btn btn-danger"  type="submit" value="Remover">--}}
-{{--                    </form>--}}
-{{--                </td>--}}
-{{--            </tr>--}}
-{{--        @endforeach--}}
+                    <a class="btn btn-info"  href="{{ route('funcionarios.show', ['funcionario' => $funcionario->id]) }}">Ver</a>
+                </td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
-{{--Botão para criar novo servico--}}
-{{--    <form action="{{ route('projetos.create') }}" method="get">--}}
-{{--        @csrf--}}
-{{--        <input class="btn btn-info"  type="submit" value="novo">--}}
-{{--    </form>--}}
+{{--Botão para criar novo funcionario--}}
+    <form action="{{ route('funcionarios.create') }}" method="get">
+        @csrf
+        <input class="btn btn-info"  type="submit" value="novo">
+    </form>
 @endsection
 {{--</body>--}}
 {{--</html>--}}

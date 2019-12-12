@@ -1,24 +1,41 @@
 @extends('master.modelo')
 
-@section('title', 'Exibir_Projeto')
+@section('title', 'Exibir Funcionário')
 
 @section('content')
-<body>
-        <label>ID do Projeto: </label>
-        <p>{{ $projeto->id }}</p>
-        <label>Nome Professor: </label>
-        <p> {{ $projeto->professor_id }} </p>
-        <label>Nome Aluno: </label>
-        <p> {{ $projeto->aluno_id }} </p>
-        <label>Titulo: </label>
-        <p> {{ $projeto->titulo }} </p>
-        <label>Ano: </label>
-        <p> {{ $projeto->ano }} </p>
-        <label>Semestre: </label>
-        <p> {{ $projeto->semestre }} </p>
-{{--        <label>Data de Criação: </label> <p> {{ date('d/m/Y H:i', strtotime($servico->created_at)) }}</p>--}}
-{{--        botão para retornar para a listagem completa--}}
-        <a class="btn btn-info" href="{{ route('projetos.index') }}">Voltar</a>
-</body>
+    <body>
+    <label>ID: </label>
+    <p>{{ $funcionario->id }}</p>
+    <label>Nome: </label>
+    <p> {{ $funcionario->nome }} </p>
+    <label>Telefone: </label>
+    <p> {{ $funcionario->telefone }} </p>
+    <label>Data de nascimento: </label>
+    <p> {{ $funcionario->data_nascimento }} </p>
+    <label>Email: </label>
+    <p> {{ $funcionario->email }} </p>
+    <label>Endereço: </label>
+    <p> {{ $funcionario->endereco }} </p>
+    <label>Genero: </label>
+    <p> {{ $funcionario->genero }}</p>
+    <label>Admissão: </label>
+    <p> {{ $funcionario->admissao }} </p>
+     <label>Função: </label>
+    <p> {{ $funcionario->funcao }} </p>
+
+    <p>
+    <form action="{{ route('funcionarios.destroy', ['funcionario' => $funcionario->id]) }}" method="post">
+        @csrf
+        @method('delete')
+        <label for="funcionario">Deletar: </label>
+        <input type="hidden" name="funcionario" value="{{ $funcionario->id }}">
+        <input class="btn btn-danger"  type="submit" value="Remover">
+    </form>
+    </p>
+    {{--        <label>Data de Criação: </label> <p> {{ date('d/m/Y H:i', strtotime($servico->created_at)) }}</p>--}}
+    {{--        botão para retornar para a listagem completa--}}
+    <label>Voltar: </label>
+    <a class="btn btn-info" href="{{ route('funcionarios.index') }}">Voltar</a>
+    </body>
 @endsection
 {{--</html>--}}
