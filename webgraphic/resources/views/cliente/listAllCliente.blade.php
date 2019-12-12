@@ -9,53 +9,45 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Ano: </th>
-            <th>Semestre: </th>
-            <th>#ID: </th>
-            <th>Professor: </th>
-            <th>Aluno: </th>
-            <th>Titulo: </th>
-            <th>Area: </th>
+            <th>ID: </th>
+            <th>Nome: </th>
+            <th>Data de nascimentno: </th>
+            <th>Telefone: </th>
+{{--            <th>E-mail: </th>--}}
+{{--            <th>Endereço: </th>--}}
+{{--            <th>Genero: </th>--}}
             <th>Ver: </th>
-            <th>Deletar: </th>
+{{--            <th>Deletar: </th>--}}
         </tr>
         </thead>
         <tbody>
 
-{{--        @foreach($projetos as $servico)--}}
+        @foreach($clientes as $cliente)
 
-{{--            <tr>--}}
-{{--                <td>{{ $servico->ano }}</td>--}}
-{{--                <td>{{ $servico->semestre }}</td>--}}
-{{--                <td>{{ $servico->projetos_id }}</td>--}}
-{{--                <td>{{ $servico->projetos_professor }}</td>--}}
-{{--                <td>{{ $servico->projetos_aluno }}</td>--}}
-{{--                <td>{{ $servico->titulo }}</td>--}}
-{{--                <td>{{ $servico->area }}</td>--}}
+            <tr>
+                <td>{{ $cliente->id}}</td>
+                <td>{{ $cliente->nome}}</td>
+                <td>{{ $cliente->data_nascimento }}</td>
+                <td>{{ $cliente->telefone }}</td>
+{{--                <td>{{ $cliente->email }}</td>--}}
+{{--                <td>{{ $cliente->endereco }}</td>--}}
+{{--                <td>{{ $cliente->genero }}</td>--}}
 
 {{--Seção contendo os botões para manipulação da tabela--}}
-{{--                <td>--}}
+                <td>
 {{--                    vizualizador individual para os elementos da tabela--}}
-{{--                    <a class="btn btn-info"  href="{{ route('projetos.show', ['servico' => $servico->projetos_id]) }}">Ver</a>--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    botão para remoção do elemento da tabela--}}
-{{--                    <form action="{{ route('projetos.destroy', ['servico' => $servico->projetos_id]) }}" method="post">--}}
-{{--                        @csrf--}}
-{{--                        @method('delete')--}}
-{{--                        <input type="hidden" name="servico" value="{{ $servico->projetos_id }}">--}}
-{{--                        <input class="btn btn-danger"  type="submit" value="Remover">--}}
-{{--                    </form>--}}
-{{--                </td>--}}
-{{--            </tr>--}}
-{{--        @endforeach--}}
+                    <a class="btn btn-info"  href="{{ route('clientes.show', ['cliente' => $cliente->id]) }}">Ver</a>
+                </td>
+
+            </tr>
+        @endforeach
         </tbody>
     </table>
-{{--Botão para criar novo servico--}}
-{{--    <form action="{{ route('projetos.create') }}" method="get">--}}
-{{--        @csrf--}}
-{{--        <input class="btn btn-info"  type="submit" value="novo">--}}
-{{--    </form>--}}
+{{--Botão para criar novo cliente--}}
+    <form action="{{ route('clientes.create') }}" method="get">
+        @csrf
+        <input class="btn btn-info"  type="submit" value="novo">
+    </form>
 @endsection
 {{--</body>--}}
 {{--</html>--}}

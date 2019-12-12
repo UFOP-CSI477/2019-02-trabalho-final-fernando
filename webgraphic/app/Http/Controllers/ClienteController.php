@@ -15,7 +15,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = DB::table('clientes');
+        $clientes = DB::table('clientes')->get();
+//        dd($clientes);
         return view('cliente.listAllCliente', [
             'clientes' => $clientes
         ]);

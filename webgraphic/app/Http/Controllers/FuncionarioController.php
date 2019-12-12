@@ -15,7 +15,7 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-       $funcionarios = DB::table('funcionarios');
+       $funcionarios = DB::table('funcionarios')->get();
        return view('funcionario.listAllFuncionario',[
            'funcionarios' => $funcionarios
        ]);

@@ -7,6 +7,7 @@ use App\funcionario;
 use App\produto;
 use App\servico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServicoController extends Controller
 {
@@ -18,7 +19,7 @@ class ServicoController extends Controller
     public function index()
     {
 //        retorna a lista para a area administrativa usando join para a construção
-        $servicos = DB::table('servicos');
+        $servicos = DB::table('servicos')->get();
         return view('projeto.listAllServico',[
             'servicos' => $servicos,
         ]);

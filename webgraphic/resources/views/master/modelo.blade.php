@@ -36,8 +36,8 @@
                 <li><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('servicos')}}">Serviços</a></li>
                 <li><a href="{{route('produtos')}}">Produtos</a></li>
-                <li><a href="{{route('clientes')}}">Clientes</a></li>
-                <li><a href="{{route('funcionarios')}}">Funcionários</a></li>
+                <li><a href="{{route('clientes.index')}}">Clientes</a></li>
+                <li><a href="{{route('funcionarios.index')}}">Funcionários</a></li>
             </ul>
         </div>
     </div>
