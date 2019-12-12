@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::get('/servicos', function () {
+    return view('servico.listAllServico');
+})->name('servicos');
+
+Route::get('/produtos', function () {
+    return view('produto.listAllProduto');
+})->name('produtos');
+
+Route::get('/clientes', function () {
+    return view('cliente.listAllCliente');
+})->name('clientes');
+
+Route::get('/funcionarios', function () {
+    return view('funcionario.listAllFuncionario');
+})->name('funcionarios');
