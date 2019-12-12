@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProdutoController extends Controller
 {
@@ -14,7 +15,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        $produtos = DB::table('produtos');
+        return view('produto.listAllProduto',[
+            'produtos' => $produtos
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('produto.addProduto');
     }
 
     /**
@@ -35,7 +39,13 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produto = new Produto();
+        $produto->tipo = $request->tipo;
+        $produto->material = $request->material;
+        $produto->dimensoes = $request->dimensoes;
+        $produto->preco_unitario = $request->preco_unitario;
+        $produto->save();
+        return redirect()->route('produtos.index');
     }
 
     /**
@@ -46,7 +56,9 @@ class ProdutoController extends Controller
      */
     public function show(produto $produto)
     {
-        //
+        return view('produto.listProduto',[
+            'produto' => $produto
+        ]);
     }
 
     /**
@@ -75,11 +87,15 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\produto  $produto
+     * @param \App\produto $produto
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(produto $produto)
     {
-        //
+//        DB::table('servicos')
+//            ->where('id_produto', $produto->id)->delete();
+        $produto->delete();
+        return redirect()->route('produtos.index');
     }
 }

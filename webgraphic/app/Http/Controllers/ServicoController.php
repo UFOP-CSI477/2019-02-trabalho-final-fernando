@@ -14,7 +14,18 @@ class ServicoController extends Controller
      */
     public function index()
     {
-        //
+//        retorna a lista para a area administrativa usando join para a construção
+        $projetos = DB::table('servicos')
+            ->select('projetos.ano','projetos.semestre','projetos.id as projetos_id',
+                'professors.nome as projetos_professor','alunos.nome as projetos_aluno',
+                'projetos.titulo','professors.area')
+            ->join('professors', 'projetos.professor_id', '=', 'professors.id')
+            ->join('alunos', 'projetos.aluno_id', '=', 'alunos.id')
+            ->get();
+        // dd($users);
+        return view('projeto.listAllProjetos',[
+            'projetos' => $projetos,
+        ]);
     }
 
     /**

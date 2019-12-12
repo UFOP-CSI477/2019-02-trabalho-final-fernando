@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -14,7 +15,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = DB::table('clientes');
+        return view('cliente.listAllCliente', [
+            'clientes' => $clientes
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.addCliente');
     }
 
     /**
@@ -35,7 +39,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Cliente();
+        $cliente->nome = $request->nome;
+        $cliente->telefone = $request->telefone;
+        $cliente->data_nascimento = $request->data_nascimento;
+        $cliente->email = $request->email;
+        $cliente->endereco = $request->endereco;
+        $cliente->genero = $request->genero;
+        $cliente->save();
+
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -46,7 +59,9 @@ class ClienteController extends Controller
      */
     public function show(cliente $cliente)
     {
-        //
+        return view('cliente.listCliente', [
+            'cliente'=>$cliente
+        ]);
     }
 
     /**
@@ -80,6 +95,9 @@ class ClienteController extends Controller
      */
     public function destroy(cliente $cliente)
     {
-        //
+//        DB::table('servicos')
+//            ->where('id_cliente', $cliente->id)->delete();
+        $cliente->delete();
+        return redirect()->route('clientes.index');
     }
 }

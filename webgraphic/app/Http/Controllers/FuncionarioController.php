@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\funcionario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FuncionarioController extends Controller
 {
@@ -14,7 +15,10 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        //
+       $funcionarios = DB::table('funcionarios');
+       return view('funcionario.listAllFuncionario',[
+           'funcionarios' => $funcionarios
+       ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('funcionario.addFuncionario');
     }
 
     /**
@@ -35,7 +39,17 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $funcionario = new Funcionario();
+        $funcionario->nome = $request->nome;
+        $funcionario->telefone = $request->telefone;
+        $funcionario->data_nascimento = date($request->data_nascimento);
+        $funcionario->email = $request->email;
+        $funcionario->endereco = $request->endereco;
+        $funcionario->genero = $request->genero;
+        $funcionario->admissao = date($request->admissao);
+        $funcionario->funcao = $request->funcao;
+        $funcionario->save();
+        return redirect()->route('funcionarios.index');
     }
 
     /**
@@ -46,7 +60,9 @@ class FuncionarioController extends Controller
      */
     public function show(funcionario $funcionario)
     {
-        //
+        return view('funcionario.listFuncionario',[
+            'funcionario' => $funcionario
+        ]);
     }
 
     /**
@@ -80,6 +96,9 @@ class FuncionarioController extends Controller
      */
     public function destroy(funcionario $funcionario)
     {
-        //
+//        DB::table('servicos')
+//            ->where('id_funcionario', $funcionario->id)->delete();
+        $funcionario->delete();
+        return redirect()->route('funcionarios.index');
     }
 }

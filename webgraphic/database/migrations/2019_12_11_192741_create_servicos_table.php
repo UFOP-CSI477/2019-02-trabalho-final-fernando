@@ -17,7 +17,7 @@ class CreateServicosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('id_cliente');
             $table->string('nome_cliente');
-            $table->integer('id_servico');
+            $table->integer('id_produto');
             $table->string('descricao_servico');
             $table->integer('quantidade');
             $table->string('nome_funcionario');
