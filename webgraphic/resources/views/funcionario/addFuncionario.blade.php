@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label for="telefone">Telefone do funcionário: </label>
-                    <input class="form-control" id="telefone" name="telefone" required="required" type="text" placeholder="(00) 99999-0000" />
+                    <input class="form-control" id="telefone" name="telefone" required="required" type="tel" placeholder="(00) 99999-0000" />
                 </div>
 
                 <div class="form-group">
@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <label for="email">E-mail: </label>
-                    <input class="form-control" id="email" name="email" required="required" type="text" placeholder="fulano@bol.com.br" />
+                    <input class="form-control" id="email" name="email" required="required" type="email" placeholder="fulano@bol.com.br" />
                 </div>
 
                  <div class="form-group">

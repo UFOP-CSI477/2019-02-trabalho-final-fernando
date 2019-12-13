@@ -19,12 +19,6 @@ Route::get('/servicos', function () {
     return view('servico.listAllServico');
 })->name('servicos');
 
-Route::get('/produtos', function () {
-    return view('produto.listAllProduto');
-})->name('produtos');
-
-
-
 Route::get('funcionarios','FuncionarioController@index')->name('funcionarios.index');
 Route::get('funcionarios/novo','FuncionarioController@create')->name('funcionarios.create');
 Route::get('funcionarios/{funcionario}','FuncionarioController@show')->name('funcionarios.show');
@@ -37,6 +31,12 @@ Route::get('clientes/{cliente}','ClienteController@show')->name('clientes.show')
 Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
 Route::delete('clientes/destroy/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
 
+Route::get('produtos','ProdutoController@index')->name('produtos.index');
+Route::get('produtos/novo','ProdutoController@create')->name('produtos.create');
+Route::get('produtos/{produto}','ProdutoController@show')->name('produtos.show');
+Route::post('produtos/store', 'ProdutoController@store')->name('produtos.store');
+Route::delete('produtos/destroy/{produto}', 'ProdutoController@destroy')->name('produtos.destroy');
+
 //Route::get('/funcionarios', function () {
 //    return view('funcionario.listAllFuncionario');
 //})->name('funcionarios');
@@ -44,3 +44,7 @@ Route::delete('clientes/destroy/{cliente}', 'ClienteController@destroy')->name('
 //Route::get('clientes', function () {
 //    return view('cliente.listAllCliente');
 //})->name('clientes');
+
+//Route::get('/produtos', function () {
+//    return view('produto.listAllProduto');
+//})->name('produtos');

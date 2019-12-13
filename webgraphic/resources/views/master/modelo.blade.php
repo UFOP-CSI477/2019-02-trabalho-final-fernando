@@ -35,7 +35,7 @@
 {{--                <li><a href="{{route('area_geral_professores')}}">Pesquisa professor por area</a></li>--}}
                 <li><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('servicos')}}">Serviços</a></li>
-                <li><a href="{{route('produtos')}}">Produtos</a></li>
+                <li><a href="{{route('produtos.index')}}">Produtos</a></li>
                 <li><a href="{{route('clientes.index')}}">Clientes</a></li>
                 <li><a href="{{route('funcionarios.index')}}">Funcionários</a></li>
             </ul>

@@ -1,52 +1,35 @@
 @extends('master.modelo')
 
-@section('title', 'Cadastro_Projeto')
+@section('title', 'Cadastro Produto')
 
 @section('content')
 {{--    Formulário para criação do servico--}}
         <div class="raw" id="cadastro">
 {{--Método para envio dos dados para o backend--}}
-            <form  class="form-group" method="post" action="{{ route('projetos.store') }}">
+            <form  class="form-group" method="post" action="{{ route('produtos.store') }}">
                 @csrf
-{{--                carrega os nomes de alunos existentes--}}
+
                 <div class="form-group">
-                    <label for="aluno_id">Select Aluno:</label>
-                    <select name="aluno_id" id="aluno_id" class="form-control">
-                    <option value=""> -- Select Aluno --</option>
-                    @foreach ($alunos as $aluno)
-                        <option value="{{ $aluno->id }}">{{ $aluno->nome }}</option>
-                    @endforeach
-                </select>
-                </div>
-{{--carrega os nomes de professores existentes--}}
-                <div class="form-group">
-                    <label for="professor_id">Select Prof.:</label>
-                    <select name="professor_id" id="aluno_id" class="form-control">
-                    <option value=""> -- Select Professor --</option>
-                    @foreach ($professores as $professor)
-                        <option value="{{ $professor->id }}">{{ $professor->nome }}</option>
-                    @endforeach
-                </select>
-                </div>
-{{--seção dos campos comuns--}}
-                <div class="form-group">
-                    <label for="titulo">Titulo do Projeto</label>
-                    <input class="form-control" id="titulo" name="titulo" required="required" type="text" placeholder="Titulo do Projeto" />
+                    <label for="tipo">Tipo de produto: </label>
+                    <input class="form-control" id="tipo" name="tipo" required="required" type="text" placeholder="cartão, banner, etc" />
                 </div>
 
                 <div class="form-group">
-                    <label for="ano">Ano: </label>
-                    <input class="form-control" id="ano" name="ano" required="required" type="text" placeholder="19"/>
+                    <label for="material">Tipo de material: </label>
+                    <input class="form-control" id="material" name="material" required="required" type="text" placeholder="lona, laminado" />
                 </div>
-{{--Utilização do select para limitar as opções de preenchimento do campo semestre--}}
+
                 <div class="form-group">
-                    <label for="semestre">Semestre:</label>
-                    <select name="semestre" id="semestre" class="form-control">
-                        <option value=""> -- Select Semestre --</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                    </select>
+                    <label for="dimensoes">Dimensões: </label>
+                    <input class="form-control" id="dimensoes" name="dimensoes" required="required" type="text" placeholder="10x30, 100x50" />
                 </div>
+
+                <div class="form-group">
+                    <label for="preco_unitario">Preço unitário: </label>
+                    <input class="form-control" id="preco_unitario" name="preco_unitario" required="required" type="number" step="0.01" placeholder=" " />
+                </div>
+
+
 {{--Botão para submissão para persistência--}}
                 <div class="form-group">
                     <input class="btn btn-info form-control" type="submit" value="Cadastrar"/>
