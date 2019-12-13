@@ -26,6 +26,11 @@
                             @foreach($modelSearchResults as $searchResult)
                                 <ul>
                                     <a href="{{ $searchResult->url }}">{{ $searchResult->title }}</a>
+                                    <br>
+                                    <label>Tipo Produto: </label> {{($searchResult->searchable)->tipo_produto}}  &emsp;
+                                    <label>Data : </label> {{($searchResult->searchable)->data_abertura}} &emsp;
+                                    <label>Nome do Funcionario: </label> {{($searchResult->searchable)->nome_funcionario}}
+
                                 </ul>
                             @endforeach
                         @endforeach

@@ -1,6 +1,6 @@
 @extends('master.modelo')
 
-@section('title', 'Visualizar_Projetos')
+@section('title', 'Visualizar_Clientes')
 
 @section('content')
 {{--    tabela para vizualização dos dados dos projetos--}}

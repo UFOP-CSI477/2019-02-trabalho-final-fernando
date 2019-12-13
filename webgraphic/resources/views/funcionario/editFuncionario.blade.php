@@ -1,9 +1,11 @@
 @extends('master.modelo')
 
-@section('title', 'Cadastro Funcionario')
+@section('title', 'Editar Funcionario')
 
 @section('content')
-{{--    Formulário para criação do servico--}}
+    <a class="btn btn-info " href="{{ route('funcionarios.index') }}">Voltar</a>
+
+    {{--    Formulário para criação do servico--}}
         <div class="raw" id="cadastro">
 {{--Método para envio dos dados para o backend--}}
             <form  class="form-group" method="post" action="{{ route('funcionarios.update', $funcionario->id) }}">

@@ -14,9 +14,9 @@ class SearchController extends Controller
 //        $servicos = Servico::with('nome_cliente')->get();
         $searchResults=DB::table('servicos')
             ->where('nome_cliente')->get();
-        return view('search.search', compact('searchResults'));
+        return view('search.searchComplemento', compact('searchResults'));
     }
-//    função de busca utilizando o ajax
+
     public function search(Request $request)
     {
         $searchResults = (new Search())

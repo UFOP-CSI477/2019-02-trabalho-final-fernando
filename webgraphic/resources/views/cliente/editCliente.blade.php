@@ -3,7 +3,9 @@
 @section('title', 'Editar Cliente')
 
 @section('content')
-{{--    Formulário para criação do servico--}}
+    <a class="btn btn-info " href="{{ route('clientes.index') }}">Voltar</a>
+
+    {{--    Formulário para criação do servico--}}
         <div class="raw" id="cadastro_edit">
 {{--Método para envio dos dados para o backend--}}
             <form  class="form-group" method="post" action="{{ route('clientes.update', $cliente->id) }}">

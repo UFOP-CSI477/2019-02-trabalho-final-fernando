@@ -3,7 +3,9 @@
 @section('title', 'Editar Produto')
 
 @section('content')
-{{--    Formulário para criação do servico--}}
+    <a class="btn btn-info " href="{{ route('produtos.show', $produto->id) }}">Voltar</a>
+
+    {{--    Formulário para criação do servico--}}
         <div class="raw" id="cadastro">
 {{--Método para envio dos dados para o backend--}}
             <form  class="form-group" method="post" action="{{ route('produtos.update', $produto->id) }}">

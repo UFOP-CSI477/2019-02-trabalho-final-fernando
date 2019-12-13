@@ -3,13 +3,14 @@
 @section('title', 'Editar Serviço')
 
 @section('content')
-
 {{--    Formulário para criação do servico--}}
-        <div class="raw" id="cadastro">
-{{--Método para envio dos dados para o backend--}}
-            <form  class="form-group" method="post" action="{{ route('servicos.update', $servico->id) }}">
-                @csrf
-                @method('PUT')
+<div class="raw" id="cadastro">
+    {{--Método para envio dos dados para o backend--}}
+    <a class="btn btn-info " href="{{ route('servicos.show', $servico->id) }}">Voltar</a><br>
+
+    <form  class="form-group" method="post" action="{{ route('servicos.update', $servico->id) }}">
+        @csrf
+        @method('PUT')
 {{--                carrega os nomes de alunos existentes--}}
                 <div class="form-group">
                     <label for="id_cliente">Select Cliente:</label>
