@@ -4,23 +4,11 @@
 
 @section('content')
 <body>
-        <label>ID do serviço: </label>
-        <p>{{ $servico->id }}</p>
+        <label>ID do serviço: </label> {{ $servico->id }}  &emsp; <label>ID cliente: </label> {{ $servico->id_cliente }} <br>
 
-        <label>ID cliente: </label>
-        <p> {{ $servico->id_cliente }} </p>
+        <label>Nome cliente: </label> {{ $servico->nome_cliente }} &emsp; <label>ID produto: </label>  {{ $servico->id_produto }} <br>
 
-        <label>Nome cliente: </label>
-        <p> {{ $servico->nome_cliente }}</p>
-
-        <label>ID produto: </label>
-        <p> {{ $servico->id_produto }} </p>
-
-        <p> <label>Tipo produto: </label></p>
-        <p> {{ $servico->tipo_produto }} </p>
-
-        <p> <label>ID funcionário: </label></p>
-        <p> {{ $servico->id_funcionario }} </p>
+        <label>Tipo produto: </label> {{ $servico->tipo_produto }}  &emsp; <label>ID funcionário: </label> {{ $servico->id_funcionario }} <br>
 
         <p> <label>Nome funcionário: </label></p>
         <p> {{ $servico->nome_funcionario }} </p>
@@ -37,18 +25,24 @@
         <p> <label>Prazo: </label></p>
         <p> {{ $servico->prazo }} </p>
 
-        <p>
         <form action="{{ route('servicos.destroy', ['servico' => $servico->id]) }}" method="post">
             @csrf
             @method('delete')
-            <label for="servico">Deletar: </label>
+            {{--                <label for="servico">Deletar: </label>--}}
             <input type="hidden" name="servico" value="{{ $servico->id }}">
-            <input class="btn btn-danger"  type="submit" value="Remover">
-        </form>
-        </p>
-        <label>Voltar: </label>
+            <input class="btn btn-danger "  type="submit" value="Remover">
+        </form><br>
 
-        <a class="btn btn-info" href="{{ route('servicos.index') }}">Voltar</a>
+        <form action="{{ route('servicos.edit', ['servico' => $servico->id]) }}" method="get">
+            @csrf
+            {{--            <label for="servico">Editar: </label>--}}
+            <input type="hidden" name="servico" value="{{ $servico->id }}">
+            <input class="btn btn-success "  type="submit" value="Editar">
+        </form><br>
+        {{--        <label>Data de Criação: </label> <p> {{ date('d/m/Y H:i', strtotime($servico->created_at)) }}</p>--}}
+        {{--        botão para retornar para a listagem completa--}}
+        {{--        <label>Voltar: </label>--}}
+        <a class="btn btn-info " href="{{ route('servicos.index') }}">Voltar</a>
 </body>
 @endsection
 {{--</html>--}}

@@ -69,7 +69,7 @@ class ProdutoController extends Controller
      */
     public function edit(produto $produto)
     {
-        //
+        return view('produto.editProduto')->with('produto', $produto);
     }
 
     /**
@@ -81,7 +81,12 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, produto $produto)
     {
-        //
+        $produto->tipo = $request->tipo;
+        $produto->material = $request->material;
+        $produto->dimensoes = $request->dimensoes;
+        $produto->preco_unitario = $request->preco_unitario;
+        $produto->save();
+        return redirect()->route('produtos.index');
     }
 
     /**

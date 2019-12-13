@@ -73,7 +73,7 @@ class ClienteController extends Controller
      */
     public function edit(cliente $cliente)
     {
-        //
+        return view('cliente.editCliente')->with('cliente', $cliente);
     }
 
     /**
@@ -85,7 +85,15 @@ class ClienteController extends Controller
      */
     public function update(Request $request, cliente $cliente)
     {
-        //
+        $cliente->nome = $request->nome;
+        $cliente->telefone = $request->telefone;
+        $cliente->data_nascimento = $request->data_nascimento;
+        $cliente->email = $request->email;
+        $cliente->endereco = $request->endereco;
+        $cliente->genero = $request->genero;
+        $cliente->save();
+
+        return redirect()->route('clientes.index');
     }
 
     /**

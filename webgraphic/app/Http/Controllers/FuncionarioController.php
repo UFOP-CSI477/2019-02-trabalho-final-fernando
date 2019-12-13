@@ -73,7 +73,7 @@ class FuncionarioController extends Controller
      */
     public function edit(funcionario $funcionario)
     {
-        //
+        return view('funcionario.editFuncionario')->with('funcionario', $funcionario);
     }
 
     /**
@@ -85,7 +85,17 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, funcionario $funcionario)
     {
-        //
+        $funcionario->nome = $request->nome;
+        $funcionario->telefone = $request->telefone;
+        $funcionario->data_nascimento = date($request->data_nascimento);
+        $funcionario->email = $request->email;
+        $funcionario->endereco = $request->endereco;
+        $funcionario->genero = $request->genero;
+        $funcionario->admissao = date($request->admissao);
+        $funcionario->funcao = $request->funcao;
+        $funcionario->save();
+
+        return redirect()->route('funcionarios.index');
     }
 
     /**

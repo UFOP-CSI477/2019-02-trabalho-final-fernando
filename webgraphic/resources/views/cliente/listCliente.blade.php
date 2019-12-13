@@ -3,11 +3,8 @@
 @section('title', 'Exibir_Cliente')
 
 @section('content')
-<body>
-        <label>ID: </label>
-        <p>{{ $cliente->id }}</p>
-        <label>Nome: </label>
-        <p> {{ $cliente->nome }} </p>
+
+        <label>ID: </label> {{ $cliente->id }}  &emsp; <label> Nome: </label> {{ $cliente->nome }}<br>
         <label>Telefone: </label>
         <p> {{ $cliente->telefone }} </p>
         <label>Data de nascimento: </label>
@@ -19,19 +16,24 @@
         <label>Genero: </label>
         <p> {{ $cliente->genero }} </p>
 
-        <p>
-            <form action="{{ route('clientes.destroy', ['cliente' => $cliente->id]) }}" method="post">
+        <form action="{{ route('clientes.destroy', ['cliente' => $cliente->id]) }}" method="post">
                 @csrf
                 @method('delete')
-                <label for="cliente">Deletar: </label>
+{{--                <label for="cliente">Deletar: </label>--}}
                 <input type="hidden" name="cliente" value="{{ $cliente->id }}">
-                <input class="btn btn-danger"  type="submit" value="Remover">
-            </form>
-        </p>
+                <input class="btn btn-danger "  type="submit" value="Remover">
+        </form><br>
+
+        <form action="{{ route('clientes.edit', ['cliente' => $cliente->id]) }}" method="get">
+            @csrf
+{{--            <label for="cliente">Editar: </label>--}}
+            <input type="hidden" name="cliente" value="{{ $cliente->id }}">
+            <input class="btn btn-success "  type="submit" value="Editar">
+        </form><br>
         {{--        <label>Data de Criação: </label> <p> {{ date('d/m/Y H:i', strtotime($servico->created_at)) }}</p>--}}
 {{--        botão para retornar para a listagem completa--}}
-        <label>Voltar: </label>
-        <a class="btn btn-info" href="{{ route('clientes.index') }}">Voltar</a>
-</body>
+{{--        <label>Voltar: </label>--}}
+        <a class="btn btn-info " href="{{ route('clientes.index') }}">Voltar</a>
+
 @endsection
 {{--</html>--}}

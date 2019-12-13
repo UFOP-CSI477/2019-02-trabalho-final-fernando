@@ -90,7 +90,15 @@ class ServicoController extends Controller
      */
     public function edit(servico $servico)
     {
-        //
+        $funcionarios = Funcionario::all();
+        $produtos = Produto::all();
+        $clientes = Cliente::all();
+
+        return view('servico.editServico')
+            ->with('funcionarios', $funcionarios)
+            ->with('produtos', $produtos)
+            ->with('clientes', $clientes)
+            ->with('servico', $servico);
     }
 
     /**
@@ -102,7 +110,23 @@ class ServicoController extends Controller
      */
     public function update(Request $request, servico $servico)
     {
-        //
+        $produtos = Produto::all();
+        $clientes = Cliente::all();
+        $funcionarios = Funcionario::all();
+
+        $servico->id_cliente = $request->id_cliente;
+        $servico->nome_cliente = ($clientes->find($request->id_cliente))->nome;
+        $servico->id_produto = $request->id_produto;
+        $servico->tipo_produto =  ($produtos->find($request->id_produto))->tipo;
+        $servico->quantidade = $request->quantidade;
+        $servico->id_funcionario = $request->id_funcionario;
+        $servico->nome_funcionario = ($funcionarios->find($request->id_funcionario))->nome;
+        $servico->prazo = $request->prazo;
+        $servico->preco_total = $request->preco_total;
+        $servico->data_abertura = date($request->data_abertura);
+
+        $servico->save();
+        return redirect()->route('servicos.index');
     }
 
     /**
