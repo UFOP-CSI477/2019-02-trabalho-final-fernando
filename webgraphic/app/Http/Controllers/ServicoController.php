@@ -126,7 +126,7 @@ class ServicoController extends Controller
         $servico->data_abertura = date($request->data_abertura);
 
         $servico->save();
-        return redirect()->route('servicos.index');
+        return redirect()->route('servicos.show',$servico->id);
     }
 
     /**

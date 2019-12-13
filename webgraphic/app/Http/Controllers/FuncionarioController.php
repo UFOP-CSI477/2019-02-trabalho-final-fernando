@@ -95,7 +95,7 @@ class FuncionarioController extends Controller
         $funcionario->funcao = $request->funcao;
         $funcionario->save();
 
-        return redirect()->route('funcionarios.index');
+        return redirect()->route('funcionarios.show', $funcionario->id);
     }
 
     /**

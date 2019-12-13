@@ -63,6 +63,7 @@
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/spatie/laravel-searchable" />
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/webgraphic/vendor/symfony/css-selector" />

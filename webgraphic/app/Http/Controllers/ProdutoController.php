@@ -86,7 +86,7 @@ class ProdutoController extends Controller
         $produto->dimensoes = $request->dimensoes;
         $produto->preco_unitario = $request->preco_unitario;
         $produto->save();
-        return redirect()->route('produtos.index');
+        return redirect()->route('produtos.show', $produto->id);
     }
 
     /**

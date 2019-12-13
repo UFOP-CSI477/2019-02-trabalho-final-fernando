@@ -11,9 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+//Route::get('/', function () {
+//    return view('search.search');
+//})->name('home');
+
+Route::get('/','SearchController@index')->name('home');
+Route::post('/search','SearchController@search')->name('search');
+
+Route::resource('clientes', 'ClienteController')->names('clientes')->parameters(['clientes' => 'cliente']);
+Route::resource('funcionarios', 'FuncionarioController')->names('funcionarios')->parameters(['funcionarios' => 'funcionario']);
+Route::resource('produtos', 'ProdutoController')->names('produtos')->parameters(['produtos' => 'produto']);
+Route::resource('servicos', 'ServicoController')->names('servicos')->parameters(['servicos' => 'servico']);
 
 //Route::get('/servicos', function () {
 //    return view('servico.listAllServico');
@@ -44,8 +52,3 @@ Route::get('/', function () {
 //Route::get('servicos/{servico}','ServicoController@show')->name('servicos.show');
 //Route::post('servicos/store', 'ServicoController@store')->name('servicos.store');
 //Route::delete('servicos/destroy/{servico}', 'ServicoController@destroy')->name('servicos.destroy');
-
-Route::resource('clientes', 'ClienteController')->names('clientes')->parameters(['clientes' => 'cliente']);
-Route::resource('funcionarios', 'FuncionarioController')->names('funcionarios')->parameters(['funcionarios' => 'funcionario']);
-Route::resource('produtos', 'ProdutoController')->names('produtos')->parameters(['produtos' => 'produto']);
-Route::resource('servicos', 'ServicoController')->names('servicos')->parameters(['servicos' => 'servico']);

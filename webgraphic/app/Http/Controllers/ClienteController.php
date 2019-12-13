@@ -93,14 +93,15 @@ class ClienteController extends Controller
         $cliente->genero = $request->genero;
         $cliente->save();
 
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.show', $cliente->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\cliente  $cliente
+     * @param \App\cliente $cliente
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(cliente $cliente)
     {

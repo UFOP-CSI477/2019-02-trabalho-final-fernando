@@ -1,6 +1,6 @@
 @extends('master.modelo')
 
-@section('title', 'Area_Administrativa')
+@section('title', 'Sistema de Busca')
 
 @section('content')
 {{--Construção da tabela resultante da pesquisa--}}
@@ -10,44 +10,30 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="form-group">
-                    <input type="text" class="form-controller" id="search" name="search" placeholder="Insira o nome do cliente"></input>
+                <form action="{{ route('search') }}" method="POST">
+                    @csrf
+                    <input type="text" name="query" />
+                    <input type="submit" class="btn btn-sm btn-primary" value="Search" />
+                </form>
+                <div class="card">
+                    <div class="card-header"><b>{{ $searchResults->count() }} results found for "{{ request('query') }}"</b></div>
+
+                    <div class="card-body">
+
+                        @foreach($searchResults->groupByType()  as $type => $modelSearchResults)
+                            <h4>{{ ucfirst($type) }}</h4>
+
+                            @foreach($modelSearchResults as $searchResult)
+                                <ul>
+                                    <a href="{{ $searchResult->url }}">{{ $searchResult->title }}</a>
+                                </ul>
+                            @endforeach
+                        @endforeach
+
+                    </div>
                 </div>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <td>id</td>.
-                        <td>id_cliente </td>.
-                        <td>nome_cliente </td>.
-                        <td>id_servico</td>.
-                        <td>descricao_servico</td>.
-                        <td>quantidade</td>.
-                        <td>nome_funcionario</td>.
-                        <td>preco_total</td>.
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
 </div>
-{{--função para gerar as linhas da tabela contendo a busca utilizando ajax--}}
-<script type="text/javascript">
-    $('#search').on('keyup',function(){
-        $value=$(this).val();
-        $.ajax({
-            type : 'get',
-            url : '{{URL::to('search')}}',
-            data:{'search':$value},
-            success:function(data){
-                $('tbody').html(data);
-            }
-        });
-    })
-</script>
-<script type="text/javascript">
-    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-</script>
 @endsection
