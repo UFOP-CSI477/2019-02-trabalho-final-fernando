@@ -20,7 +20,7 @@ class ServicoController extends Controller
     {
 //        retorna a lista para a area administrativa usando join para a construção
         $servicos = DB::table('servicos')->get();
-        return view('projeto.listAllServico',[
+        return view('servico.listAllServico',[
             'servicos' => $servicos,
         ]);
     }
@@ -48,18 +48,21 @@ class ServicoController extends Controller
      */
     public function store(Request $request)
     {
+        $produtos = Produto::all();
+        $clientes = Cliente::all();
+        $funcionarios = Funcionario::all();
+
         $servico = new Servico();
         $servico->id_cliente = $request->id_cliente;
-        $servico->nome_cliente = $request->nome_cliente;
+        $servico->nome_cliente = ($clientes->find($request->id_cliente))->nome;
         $servico->id_produto = $request->id_produto;
-        $servico->nome_produto = $request->nome_produto;
+        $servico->tipo_produto =  ($produtos->find($request->id_produto))->tipo;
         $servico->quantidade = $request->quantidade;
         $servico->id_funcionario = $request->id_funcionario;
+        $servico->nome_funcionario = ($funcionarios->find($request->id_funcionario))->nome;
         $servico->prazo = $request->prazo;
-        $servico->nome_funcionario = $request->nome_funcionario;
         $servico->preco_total = $request->preco_total;
         $servico->data_abertura = date($request->data_abertura);
-        $servico->data_fechamento = date($request->data_fechamento);
 
         $servico->save();
         return redirect()->route('servicos.index');

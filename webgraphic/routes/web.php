@@ -37,6 +37,12 @@ Route::get('produtos/{produto}','ProdutoController@show')->name('produtos.show')
 Route::post('produtos/store', 'ProdutoController@store')->name('produtos.store');
 Route::delete('produtos/destroy/{produto}', 'ProdutoController@destroy')->name('produtos.destroy');
 
+Route::get('servicos','ServicoController@index')->name('servicos.index');
+Route::get('servicos/novo','ServicoController@create')->name('servicos.create');
+Route::get('servicos/{servico}','ServicoController@show')->name('servicos.show');
+Route::post('servicos/store', 'ServicoController@store')->name('servicos.store');
+Route::delete('servicos/destroy/{servico}', 'ServicoController@destroy')->name('servicos.destroy');
+
 //Route::get('/funcionarios', function () {
 //    return view('funcionario.listAllFuncionario');
 //})->name('funcionarios');

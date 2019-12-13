@@ -9,53 +9,54 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Ano: </th>
-            <th>Semestre: </th>
-            <th>#ID: </th>
-            <th>Professor: </th>
-            <th>Aluno: </th>
-            <th>Titulo: </th>
-            <th>Area: </th>
+            <th>ID do serviço: </th>
+{{--            <th>ID cliente: </th>--}}
+            <th>Nome cliente: </th>
+{{--            <th>ID produto: </th>--}}
+            <th>Tipo produto: </th>
+{{--            <th>ID funcionário: </th>--}}
+            <th>Nome funcionário: </th>
+            <th>Quantidade: </th>
+            <th>Preço Total: </th>
+            <th>Data abertura: </th>
+            <th>Prazo: </th>
+
             <th>Ver: </th>
-            <th>Deletar: </th>
+
         </tr>
         </thead>
         <tbody>
 
-{{--        @foreach($projetos as $servico)--}}
+        @foreach($servicos as $servico)
 
-{{--            <tr>--}}
-{{--                <td>{{ $servico->ano }}</td>--}}
-{{--                <td>{{ $servico->semestre }}</td>--}}
-{{--                <td>{{ $servico->projetos_id }}</td>--}}
-{{--                <td>{{ $servico->projetos_professor }}</td>--}}
-{{--                <td>{{ $servico->projetos_aluno }}</td>--}}
-{{--                <td>{{ $servico->titulo }}</td>--}}
-{{--                <td>{{ $servico->area }}</td>--}}
+            <tr>
+                <td>{{ $servico->id }}</td>
+{{--                <td>{{ $servico->id_cliente }}</td>--}}
+                <td>{{ $servico->nome_cliente }}</td>
+{{--                <td>{{ $servico->id_produto }}</td>--}}
+                <td>{{ $servico->tipo_produto }}</td>
+{{--                <td>{{ $servico->id_funcionario }}</td>--}}
+                <td>{{ $servico->nome_funcionario }}</td>
+                <td>{{ $servico->quantidade }}</td>
+                <td>{{ $servico->preco_total}}</td>
+                <td>{{ $servico->data_abertura}}</td>
+                <td>{{ $servico->prazo}}</td>
+
 
 {{--Seção contendo os botões para manipulação da tabela--}}
-{{--                <td>--}}
+                <td>
 {{--                    vizualizador individual para os elementos da tabela--}}
-{{--                    <a class="btn btn-info"  href="{{ route('projetos.show', ['servico' => $servico->projetos_id]) }}">Ver</a>--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    botão para remoção do elemento da tabela--}}
-{{--                    <form action="{{ route('projetos.destroy', ['servico' => $servico->projetos_id]) }}" method="post">--}}
-{{--                        @csrf--}}
-{{--                        @method('delete')--}}
-{{--                        <input type="hidden" name="servico" value="{{ $servico->projetos_id }}">--}}
-{{--                        <input class="btn btn-danger"  type="submit" value="Remover">--}}
-{{--                    </form>--}}
-{{--                </td>--}}
-{{--            </tr>--}}
-{{--        @endforeach--}}
+                    <a class="btn btn-info"  href="{{ route('servicos.show', ['servico' => $servico->id]) }}">Ver</a>
+                </td>
+                </tr>
+        @endforeach
         </tbody>
     </table>
 {{--Botão para criar novo servico--}}
-{{--    <form action="{{ route('projetos.create') }}" method="get">--}}
-{{--        @csrf--}}
-{{--        <input class="btn btn-info"  type="submit" value="novo">--}}
-{{--    </form>--}}
+    <form action="{{ route('servicos.create') }}" method="get">
+        @csrf
+        <input class="btn btn-info"  type="submit" value="novo">
+    </form>
 @endsection
 {{--</body>--}}
 {{--</html>--}}
