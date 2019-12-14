@@ -18,23 +18,22 @@
 ### 2. Escopo
 
   Este projeto terá as seguintes funcionalidades:
-  * Cadastrar, editar e remover vendas, clientes e orçamentos.
-  * Controle financeiro e do estoque, bem como saída de produtos.
-  * Login para que o usuário tenha acesso ao sistema.
-
+  * Cadastrar, editar e remover produtos, serviços, clientes e funcionários.
+  * Registrar os serviços para os clientes, sendo obrigatório o cliente, o produto e o funcionário.
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
   Neste trabalho não serão considerados:
   
-  * Mais de uma empresa no sistema;
-  * Tipos diferentes de permissão para cada usuário.
+  * Um cliente por serviço cadastrado;
+  * Um funcionário por serviço cadastrado.
+  * Um Produto por serviço cadastrado.
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  Protótipos para as páginas de login e de cadastro de clientes foram elaborados, e podem ser encontrados na pasta protótipos do diretório.
-
+  * Protótipo para a página cadastro de clientes foram elaborados, e podem ser encontrados na pasta protótipos do diretório.
+  * O print das telas do sistema encontram-se na pasta Telas, localizada na raiz do projeto.
 ### 5. Referências
   Arquivos das aulas ministradas pelo professor.
