@@ -24,16 +24,23 @@
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados:
+  Neste trabalho serão considerados:
   
   * Um cliente por serviço cadastrado;
   * Um funcionário por serviço cadastrado.
   * Um Produto por serviço cadastrado.
+  * Mesmo o cliente, o funcionario e o produto sendo removido, o serviço registrado continua o mesmo.
 
+  Neste trabalho não serão considerados:
+  
+  * Carrinho de compras;
+  * Controle financeiro;
+  
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  * Protótipo para a página cadastro de clientes foram elaborados, e podem ser encontrados na pasta protótipos do diretório.
+  * Protótipo para o cadastro de clientes foram elaborados, e podem ser encontrados na pasta protótipos do diretório.
   * O print das telas do sistema encontram-se na pasta Telas, localizada na raiz do projeto.
+
 ### 5. Referências
   Arquivos das aulas ministradas pelo professor.
